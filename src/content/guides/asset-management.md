@@ -85,7 +85,7 @@ npm install --save-dev style-loader css-loader
  };
 ```
 
-Module loaders can be chained. Each loader in the chain applies transformations to the processed resource. A chain is executed in reverse order. The first loader passes its result (resource with applied transformations) to the next one, and so forth. Finally, webpack expects JavaScript to be returned by the last loader in the chain.
+Module loaders can be chained, with each loader in the chain applying transformations to the processed output of the previous loader. Chains are executed in reverse order, meaning that a file would be first processed by `css-loader`, with its output then being passed to `style-loader`, and so on. Webpack expects JavaScript to be returned by the final loader in the chain.
 
 The above order of loaders should be maintained: [`'style-loader'`](/loaders/style-loader) comes first and followed by [`'css-loader'`](/loaders/css-loader). If this convention is not followed, webpack is likely to throw errors.
 
